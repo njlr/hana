@@ -192,9 +192,8 @@ BOOST_HANA_NAMESPACE_BEGIN
 
     namespace literals {
         template <char ...c>
-        constexpr auto operator"" _c() {
-            return hana::llong<ic_detail::parse<sizeof...(c)>({c...})>{};
-        }
+        constexpr hana::llong<ic_detail::parse<sizeof...(c)>({c...})>
+        operator"" _c() { return {}; }
     }
 
     //////////////////////////////////////////////////////////////////////////
