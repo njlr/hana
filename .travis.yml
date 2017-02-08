@@ -318,7 +318,8 @@ before_script:
   # Go back to the root of the project and setup the build directory
   ############################################################################
   - cd ${TRAVIS_BUILD_DIR}
-  - (mkdir build && cd build && cmake .. -DBOOST_HANA_ENABLE_WERROR=ON ${CMAKE_OPTIONS})
+  - (mkdir build && cd build && cmake .. -DBOOST_HANA_ENABLE_WERROR=ON -DBRIGAND_CLONE_IF_MISSING=true ${CMAKE_OPTIONS})
+  - cmake --build build --target Brigand # Install dependency for testing
 
 
 script:

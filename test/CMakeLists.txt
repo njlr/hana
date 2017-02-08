@@ -5,6 +5,10 @@
 add_custom_target(tests COMMENT "Build all the unit tests.")
 add_dependencies(check tests)
 
+find_package(Brigand)
+if (Brigand_FOUND)
+    include_directories(${BRIGAND_INCLUDE_DIR})
+endif()
 
 ##############################################################################
 # Caveats: Take note of public headers and tests that are not supported.
@@ -18,6 +22,14 @@ if (NOT Boost_FOUND)
         "boost/hana/ext/boost/.+.hpp"
         "boost/hana/ext/boost.hpp"
         "boost/hana/experimental/printable.hpp")
+endif()
+
+if (NOT Brigand_FOUND)
+    list(APPEND EXCLUDED_UNIT_TESTS "ext/brigand/*.cpp")
+
+    list(APPEND EXCLUDED_PUBLIC_HEADERS
+        "boost/hana/ext/brigand/.+.hpp"
+        "boost/hana/ext/brigand.hpp")
 endif()
 
 # The std::tuple adapter is not supported with Clang < 3.7.0
