@@ -1,3 +1,9 @@
 /build/
 /doc/html/
 /test/worksheet.cpp
+
+/buck-out/
+/.buckd/
+/buckaroo/
+.buckconfig.local
+BUCKAROO_DEPS

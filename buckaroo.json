@@ -1,0 +1,10 @@
+{
+  "name": "boost-hana",
+  "dependencies": {
+    "boost-core": "1.63.0",
+    "boost-fusion": "1.63.0",
+    "boost-config": "1.63.0",
+    "boost-mpl": "1.63.0",
+    "boost-tuple": "1.63.0"
+  }
+}
